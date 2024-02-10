@@ -20,26 +20,26 @@ async fn main() {
 
     const NUM_KEYS: usize = 4; // must match the number of broadcasters statically defined below both creation and track_finished
     const NUM_VALUES: usize = 50; // number of values per source key/broadcaster, can increase this to increase the chance if it not finishing
-
+    
     // create broadcasters
-
+    
     let b_0 = broadcaster(0, source.clone());
     let b_1 = broadcaster(1, source.clone());
     let b_2 = broadcaster(2, source.clone());
     let b_3 = broadcaster(3, source.clone());
-
+    
     // track broadcaster for completion
 
     track_finished(0, b_0.clone(), finished.clone(), NUM_VALUES);
     track_finished(1, b_1.clone(), finished.clone(), NUM_VALUES);
     track_finished(2, b_2.clone(), finished.clone(), NUM_VALUES);
     track_finished(3, b_3.clone(), finished.clone(), NUM_VALUES);
-
+    
     populate_source(source.clone(), NUM_VALUES, NUM_KEYS);
 
     loop {
         let num = finished.read().unwrap().len();
-        println!("num_finished {}", num);
+        println!("finished {:?}", finished.read().unwrap());
         if num == NUM_KEYS {
             break;
         }
