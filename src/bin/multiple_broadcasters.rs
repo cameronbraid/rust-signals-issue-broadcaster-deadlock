@@ -72,7 +72,7 @@ fn broadcaster(
     let with_prefix = source
         .entries_cloned()
         .filter_map(move |(k, v)| {
-            if k.starts_with(&key.to_string()) {
+            if k.starts_with(&format!("{key}-")) {
                 Some(v)
             } else {
                 None
