@@ -46,6 +46,8 @@ async fn main() {
         }
         sleep(Duration::from_secs(1)).await;
     }
+
+    println!("Done")
 }
 
 fn populate_source(
