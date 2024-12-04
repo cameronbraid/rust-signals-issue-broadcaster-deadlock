@@ -6,5 +6,5 @@ authors = ["Cameron <cameron@drivenow.com.au>"]
 
 [dependencies]
 tokio = { version = "1.0", features = ["rt-multi-thread", "macros", "sync", "time","full"] }
-futures-signals = "=0.3.33"
+futures-signals = "=0.3.34"
 simple_logger = "*"
